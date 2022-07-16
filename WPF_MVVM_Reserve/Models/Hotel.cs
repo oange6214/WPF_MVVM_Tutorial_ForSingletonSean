@@ -19,7 +19,7 @@ namespace WPF_MVVM_Reserve.Models
         /// </summary>
         /// <param name="usernme">The username of user.</param>
         /// <returns>The reservations for the user.</returns>
-         public IEnumerable<Reservation> GetAllReservations(string usernme)
+         public IEnumerable<Reservation> GetAllReservations()
         {
             return _reservationBook.GetAllReservations();
         }

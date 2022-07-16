@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Windows;
 using WPF_MVVM_Reserve.Exceptions;
 using WPF_MVVM_Reserve.Models;
+using WPF_MVVM_Reserve.Services;
 using WPF_MVVM_Reserve.ViewModels;
 
 namespace WPF_MVVM_Reserve.Commands
@@ -11,10 +12,13 @@ namespace WPF_MVVM_Reserve.Commands
     {
         private readonly MakeReservationViewModel _makeReservationViewModel;
         private readonly Hotel _hotel;
-        public MakeReservationCommand(MakeReservationViewModel makeReservationViewModel, Hotel hotel)
+        private readonly NavigationService _reservationViewNavigationService;
+
+        public MakeReservationCommand(MakeReservationViewModel makeReservationViewModel, Hotel hotel, NavigationService reservationViewNavigationService)
         {
             _makeReservationViewModel = makeReservationViewModel;
             _hotel = hotel;
+            _reservationViewNavigationService = reservationViewNavigationService;
 
             _makeReservationViewModel.PropertyChanged += OnViewModelPropertyChanged;
         }
@@ -44,6 +48,8 @@ namespace WPF_MVVM_Reserve.Commands
                     "Success",
                     MessageBoxButton.OK,
                     MessageBoxImage.Information);
+
+                _reservationViewNavigationService.Navigate();
             }
             catch (ReservationConflictException)
             {
