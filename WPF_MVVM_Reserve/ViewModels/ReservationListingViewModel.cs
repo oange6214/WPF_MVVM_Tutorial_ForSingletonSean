@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using WPF_MVVM_Reserve.Commands;
 using WPF_MVVM_Reserve.Models;
 
 namespace WPF_MVVM_Reserve.ViewModels
@@ -16,6 +17,8 @@ namespace WPF_MVVM_Reserve.ViewModels
         {
             _reservations = new ObservableCollection<ReservationViewModel>();
 
+            MakeReservationCommand = new NavigateCommand();
+             
             _reservations.Add(
                 new ReservationViewModel(
                     new Reservation(

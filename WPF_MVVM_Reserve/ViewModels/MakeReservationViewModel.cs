@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using WPF_MVVM_Reserve.Commands;
+using WPF_MVVM_Reserve.Models;
 
 namespace WPF_MVVM_Reserve.ViewModels
 {
@@ -55,7 +57,7 @@ namespace WPF_MVVM_Reserve.ViewModels
             }
         }
 
-        private DateTime _startDate;
+        private DateTime _startDate = DateTime.Now;
 
         public DateTime StartDate
         {
@@ -70,7 +72,7 @@ namespace WPF_MVVM_Reserve.ViewModels
             }
         }
 
-        private DateTime _endDate;
+        private DateTime _endDate = DateTime.Now;
 
         public DateTime EndDate
         {
@@ -86,11 +88,12 @@ namespace WPF_MVVM_Reserve.ViewModels
         }
 
         public ICommand SubmitCommand { get; }
-        public ICommand CacelCommand { get; }
+        public ICommand CancelCommand { get; }
 
-        public MakeReservationViewModel()
+        public MakeReservationViewModel(Hotel hotel)
         {
-
+            SubmitCommand = new MakeReservationCommand(this, hotel);
+            CancelCommand = new CancelMakeReservationCommand();
         }
     }
 }

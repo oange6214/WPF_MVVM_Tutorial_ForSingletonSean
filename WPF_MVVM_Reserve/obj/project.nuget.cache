@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wWP4QqBABn/i2yqxeCrYLZP/+l7EpqZ4pL92LfYcfe6UHDgmmNx7rMDkgBsfjT3wcvz+J3Kka+JNRgX1h6cbxQ==",
+  "dgSpecHash": "muUkGi9YXwJzQqFYDAZSw1oscqLITzbhB364/5NP5mbRr3pzmwys+mzyV4s8utAe9oCUXxTGifJW5Sq79ca85w==",
   "success": true,
-  "projectFilePath": "D:\\01_CSharp\\WPF_MVVM\\WPF_MVVM_Reserve\\WPF_MVVM_Reserve.csproj",
+  "projectFilePath": "J:\\C#\\WPF_MVVM_Tutorial_ForSingletonSean\\WPF_MVVM_Reserve\\WPF_MVVM_Reserve.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

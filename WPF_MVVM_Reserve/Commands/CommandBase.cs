@@ -9,9 +9,14 @@ namespace WPF_MVVM_Reserve.Commands
 
         public virtual bool CanExecute(object? parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public abstract void Execute(object? parameter);
+        
+        protected void OnCanExecutedChanged()
+        {
+            CanExecuteChanged?.Invoke(this, new EventArgs());
+        }
     }
 }

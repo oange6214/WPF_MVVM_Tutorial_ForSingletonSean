@@ -13,6 +13,6 @@
 
     <Grid MaxWidth="600" Margin="20,10">
         <views:ReservationListingView DataContext="{Binding CurrentViewModel}" />
-        <!--<views:ReservationListingView />-->
+        <!--<views:MakeReservationView DataContext="{Binding CurrentViewModel}" />-->
     </Grid>
 </Window>

@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\01_CSharp\WPF_MVVM\WPF_MVVM_Reserve\obj\Debug\net6.0-windows\
+J:\C#\WPF_MVVM_Tutorial_ForSingletonSean\WPF_MVVM_Reserve\obj\Debug\net6.0-windows\
 WPF_MVVM_Reserve
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\01_CSharp\WPF_MVVM\WPF_MVVM_Reserve\App.xaml
+J:\C#\WPF_MVVM_Tutorial_ForSingletonSean\WPF_MVVM_Reserve\App.xaml
 3-651115779
 
-15-1439442586
-194-97651837
+191200283393
+194-1367339712
 MainWindow.xaml;Views\MakeReservationView.xaml;Views\ReservationListingView.xaml;
 
 False
