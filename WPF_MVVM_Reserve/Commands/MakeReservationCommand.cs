@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Windows;
 using WPF_MVVM_Reserve.Exceptions;
 using WPF_MVVM_Reserve.Models;
@@ -8,7 +9,7 @@ using WPF_MVVM_Reserve.ViewModels;
 
 namespace WPF_MVVM_Reserve.Commands
 {
-    public class MakeReservationCommand : CommandBase
+    public class MakeReservationCommand : AsyncCommandBase
     {
         private readonly MakeReservationViewModel _makeReservationViewModel;
         private readonly Hotel _hotel;
@@ -30,7 +31,7 @@ namespace WPF_MVVM_Reserve.Commands
                 base.CanExecute(parameter);
         }
 
-        public override void Execute(object? parameter)
+        public override async Task ExecuteAsync(object parameter)
         {
             Reservation reservation = new Reservation(
                 new RoomID(_makeReservationViewModel.FloorNumber, _makeReservationViewModel.RoomNumber),
@@ -41,7 +42,7 @@ namespace WPF_MVVM_Reserve.Commands
 
             try
             {
-                _hotel.MakeReservation(reservation);
+                await _hotel.MakeReservation(reservation);
 
                 MessageBox.Show(
                     "Successfully reserved room.",
@@ -59,11 +60,19 @@ namespace WPF_MVVM_Reserve.Commands
                     MessageBoxButton.OK, 
                     MessageBoxImage.Error);
             }
+            catch (Exception)
+            {
+                MessageBox.Show(
+                    "Failed to make reservation.",
+                    "Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
         }
 
         private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            if(e.PropertyName ==  nameof(MakeReservationViewModel.Username))
+            if(e.PropertyName ==  nameof(MakeReservationViewModel.Username) || e.PropertyName == nameof(MakeReservationViewModel.FloorNumber))
             {
                 OnCanExecutedChanged();
             }

@@ -3,7 +3,6 @@ using System.Windows.Input;
 using WPF_MVVM_Reserve.Commands;
 using WPF_MVVM_Reserve.Models;
 using WPF_MVVM_Reserve.Services;
-using WPF_MVVM_Reserve.Stores;
 
 namespace WPF_MVVM_Reserve.ViewModels
 {
