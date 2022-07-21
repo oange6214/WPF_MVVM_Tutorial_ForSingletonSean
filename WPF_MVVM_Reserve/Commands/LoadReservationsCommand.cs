@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
 using WPF_MVVM_Reserve.Models;
+using WPF_MVVM_Reserve.Stores;
 using WPF_MVVM_Reserve.ViewModels; 
 
 namespace WPF_MVVM_Reserve.Commands
@@ -11,20 +12,21 @@ namespace WPF_MVVM_Reserve.Commands
     public class LoadReservationsCommand : AsyncCommandBase
     {
         private readonly ReservationListingViewModel _viewModel;
-        private readonly Hotel _hotel;
-        public LoadReservationsCommand(ReservationListingViewModel viewModel, Hotel hotel)
+        private readonly HotelStore _hotelStore;
+        public LoadReservationsCommand(ReservationListingViewModel viewModel, HotelStore hotelStore)
         {
             _viewModel = viewModel;
-            _hotel = hotel;
+            _hotelStore = hotelStore;
         }
 
         public override async Task ExecuteAsync(object parameter)
         {
             try
             {
-                IEnumerable<Reservation> reservations = await _hotel.GetAllReservations();
+                //IEnumerable<Reservation> reservations = await _hotel.GetAllReservations();
+                _hotelStore.Load();
 
-                _viewModel.UpdateReservations(reservations);
+                _viewModel.UpdateReservations(_hotelStore.Reservations);
             }
             catch (Exception)
             {

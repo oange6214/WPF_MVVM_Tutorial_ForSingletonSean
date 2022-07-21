@@ -3,6 +3,7 @@ using System.Windows.Input;
 using WPF_MVVM_Reserve.Commands;
 using WPF_MVVM_Reserve.Models;
 using WPF_MVVM_Reserve.Services;
+using WPF_MVVM_Reserve.Stores;
 
 namespace WPF_MVVM_Reserve.ViewModels
 {
@@ -87,9 +88,9 @@ namespace WPF_MVVM_Reserve.ViewModels
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
 
-        public MakeReservationViewModel(Hotel hotel, NavigationService reservationViewNavigationService)
+        public MakeReservationViewModel(HotelStore hotelStore, NavigationService reservationViewNavigationService)
         {
-            SubmitCommand = new MakeReservationCommand(this, hotel, reservationViewNavigationService);
+            SubmitCommand = new MakeReservationCommand(this, hotelStore, reservationViewNavigationService);
             CancelCommand = new NavigateCommand(reservationViewNavigationService);
         }
     }

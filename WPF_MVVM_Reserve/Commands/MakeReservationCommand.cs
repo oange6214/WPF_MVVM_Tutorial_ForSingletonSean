@@ -5,6 +5,7 @@ using System.Windows;
 using WPF_MVVM_Reserve.Exceptions;
 using WPF_MVVM_Reserve.Models;
 using WPF_MVVM_Reserve.Services;
+using WPF_MVVM_Reserve.Stores;
 using WPF_MVVM_Reserve.ViewModels;
 
 namespace WPF_MVVM_Reserve.Commands
@@ -12,13 +13,13 @@ namespace WPF_MVVM_Reserve.Commands
     public class MakeReservationCommand : AsyncCommandBase
     {
         private readonly MakeReservationViewModel _makeReservationViewModel;
-        private readonly Hotel _hotel;
+        private readonly HotelStore _hotelStore;
         private readonly NavigationService _reservationViewNavigationService;
 
-        public MakeReservationCommand(MakeReservationViewModel makeReservationViewModel, Hotel hotel, NavigationService reservationViewNavigationService)
+        public MakeReservationCommand(MakeReservationViewModel makeReservationViewModel, HotelStore hotelStore, NavigationService reservationViewNavigationService)
         {
             _makeReservationViewModel = makeReservationViewModel;
-            _hotel = hotel;
+            _hotelStore = hotelStore;
             _reservationViewNavigationService = reservationViewNavigationService;
 
             _makeReservationViewModel.PropertyChanged += OnViewModelPropertyChanged;
@@ -42,7 +43,7 @@ namespace WPF_MVVM_Reserve.Commands
 
             try
             {
-                await _hotel.MakeReservation(reservation);
+                await _hotelStore.MakeReservation(reservation);
 
                 MessageBox.Show(
                     "Successfully reserved room.",
@@ -50,7 +51,7 @@ namespace WPF_MVVM_Reserve.Commands
                     MessageBoxButton.OK,
                     MessageBoxImage.Information);
 
-                _reservationViewNavigationService.Navigate();
+                //_reservationViewNavigationService.Navigate();
             }
             catch (ReservationConflictException)
             {

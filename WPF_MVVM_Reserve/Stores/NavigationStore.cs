@@ -12,6 +12,7 @@ namespace WPF_MVVM_Reserve.Stores
             get => _currentViewModel;
             set
             {
+                _currentViewModel?.Dispose();
                 _currentViewModel = value;
                 OnCurrentViewModelChanged();
             }

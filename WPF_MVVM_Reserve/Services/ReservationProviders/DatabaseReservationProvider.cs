@@ -23,7 +23,7 @@ namespace WPF_MVVM_Reserve.Services.ReservationProviders
         {
             using (ReservoomDbContext context = _dbContextFactory.CreateDbContext())
             {
-                IEnumerable<ReservationDTO> reservationDTOs= await context.Reservations.ToListAsync();
+                IEnumerable<ReservationDTO> reservationDTOs = await context.Reservations.ToListAsync();
 
                 return reservationDTOs.Select(r => ToReservation(r));
             }

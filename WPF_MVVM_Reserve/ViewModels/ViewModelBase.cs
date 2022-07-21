@@ -11,5 +11,10 @@ namespace WPF_MVVM_Reserve.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
+
+        public virtual void Dispose()
+        {
+
+        }
     }
 }
