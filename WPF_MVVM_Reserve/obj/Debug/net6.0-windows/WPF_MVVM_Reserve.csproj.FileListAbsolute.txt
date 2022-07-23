@@ -115,3 +115,4 @@ J:\C#\WPF_MVVM_Tutorial_ForSingletonSean\WPF_MVVM_Reserve\obj\Debug\net6.0-windo
 J:\C#\WPF_MVVM_Tutorial_ForSingletonSean\WPF_MVVM_Reserve\obj\Debug\net6.0-windows\WPF_MVVM_Reserve.pdb
 J:\C#\WPF_MVVM_Tutorial_ForSingletonSean\WPF_MVVM_Reserve\obj\Debug\net6.0-windows\WPF_MVVM_Reserve.genruntimeconfig.cache
 J:\C#\WPF_MVVM_Tutorial_ForSingletonSean\WPF_MVVM_Reserve\obj\Debug\net6.0-windows\ref\WPF_MVVM_Reserve.dll
+J:\C#\WPF_MVVM_Tutorial_ForSingletonSean\WPF_MVVM_Reserve\bin\Debug\net6.0-windows\LoadingSpinnerControl.dll

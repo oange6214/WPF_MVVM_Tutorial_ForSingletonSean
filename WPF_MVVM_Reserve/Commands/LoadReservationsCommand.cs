@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
-using WPF_MVVM_Reserve.Models;
 using WPF_MVVM_Reserve.Stores;
-using WPF_MVVM_Reserve.ViewModels; 
+using WPF_MVVM_Reserve.ViewModels;
 
 namespace WPF_MVVM_Reserve.Commands
 {
@@ -21,21 +18,21 @@ namespace WPF_MVVM_Reserve.Commands
 
         public override async Task ExecuteAsync(object parameter)
         {
+            _viewModel.ErrorMessage = string.Empty;
+            _viewModel.IsLoading = true;
+
             try
             {
-                //IEnumerable<Reservation> reservations = await _hotel.GetAllReservations();
-                _hotelStore.Load();
+                await _hotelStore.Load();
 
                 _viewModel.UpdateReservations(_hotelStore.Reservations);
             }
             catch (Exception)
             {
-                MessageBox.Show(
-                    "Failed to load reservations.",
-                    "Error",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                _viewModel.ErrorMessage = "Failed to load reservatations.";
             }
+
+            _viewModel.IsLoading = false;
         }
     }
 }
