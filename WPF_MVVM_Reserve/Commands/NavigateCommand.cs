@@ -1,15 +1,13 @@
-﻿using System;
-using WPF_MVVM_Reserve.Services;
-using WPF_MVVM_Reserve.Stores;
+﻿using WPF_MVVM_Reserve.Services;
 using WPF_MVVM_Reserve.ViewModels;
 
 namespace WPF_MVVM_Reserve.Commands
 {
-    public class NavigateCommand : CommandBase
+    public class NavigateCommand<TViewModel> : CommandBase where TViewModel : ViewModelBase
     {
-        private readonly NavigationService _navigationService;
+        private readonly NavigationService<TViewModel> _navigationService;
 
-        public NavigateCommand(NavigationService navigationService)
+        public NavigateCommand(NavigationService<TViewModel> navigationService)
         {
             _navigationService = navigationService;
         }
